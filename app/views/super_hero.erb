@@ -1,1 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1><%=  @team_name.split.map(&:capitalize).join(' ') %></h1>
+        <% words_to_ignore = ['love']%>
+        <% @new_word = @team_motto.split.each{|word| word.capitalize! if !words_to_ignore.include?(word)}%>
+    <h2>Team Motto: <%= @new_word.join(' ') %></h2>
+    <h2>Hero Name: <%= @team_members[0]["name"].capitalize %> </h2>
+    <p>Hero Power: <%= @team_members[0]["power"].capitalize %></p>
+    <% word_to_ignore = ['love']%>
+    <p>Hero Biography: <%= @team_members[0]["bio"].split.each{|word| word.capitalize! if !word_to_ignore.include?(word)}.join(" ") %> </p>
+    <h2>Hero Name: <%= @team_members[1]["name"].capitalize %> </h2>
+    <% letters = ['j','s']%>
+    <p>Hero Power: <%= @team_members[1]["power"].split("").each{|letter| letter.capitalize! if letters.include?(letter)}.join %></p>
 
+    <% hero_name2 = @team_members[1]["bio"].split('').each{|letter| letter.capitalize! if letters.include?(letter)} %>
+    <p>Hero Biography: <%= hero_name2.join %> </p>
+    <h2>Hero Name: <%= @team_members[2]["name"].capitalize %> </h2>
+    <p>Hero Power: <%= @team_members[2]["power"].capitalize %></p>
+    <p>Hero Biography: <%= @team_members[2]["bio"].split.each{|word| word.capitalize! if !word_to_ignore.include?(word)}.join(" ") %> </p>
+    
+    
+  </body>
+</html>
